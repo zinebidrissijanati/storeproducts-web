@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Products from '../views/Products.vue'
+import Cart from '../views/Cart.vue'
 
 Vue.use(VueRouter)
 
@@ -8,7 +10,20 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    children: [
+      {
+        path: '/',
+        name: 'Products',
+        component: Products,
+        default: true,
+      },
+      {
+        path: '/cart',
+        name: 'Cart',
+        component: Cart,
+      },
+    ]
   },
   {
     path: '/about',
